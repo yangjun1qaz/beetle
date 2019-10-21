@@ -13,4 +13,6 @@ import java.util.Map;
 public interface ShopService {
 
      List<ShopBean> getShopList();
+
+     String postTest(String requestBody);
 }

@@ -5,6 +5,8 @@ import com.brayden.beetleserver.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -22,5 +24,12 @@ public class ShopController {
     @ResponseBody
     public List<ShopBean> getShopList() {
         return shopService.getShopList();
+    }
+
+
+    @PostMapping("/postTest")
+    @ResponseBody
+    public String postTest(@RequestBody String requestBody){
+        return shopService.postTest(requestBody);
     }
 }

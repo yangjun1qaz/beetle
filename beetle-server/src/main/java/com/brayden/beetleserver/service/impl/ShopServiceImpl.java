@@ -21,4 +21,11 @@ public class ShopServiceImpl implements ShopService {
         shopList.add(new ShopBean("便利店", "天水路")) ;
         return shopList;
     }
+
+    @Override
+    public String postTest(String requestBody) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(requestBody);
+        return sb.toString();
+    }
 }

@@ -9,6 +9,7 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  #�ر����ұ���ģʽ���������������鲻�ܹص����������ע�᲻��eureka�У�eureka�����Ƴ������б����������߿��Լ������á�
   server:
     enable-self-preservation: false
 
