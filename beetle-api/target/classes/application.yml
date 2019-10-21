@@ -1,0 +1,11 @@
+server:
+  port: 8988
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+spring:
+  application:
+    name: beetle-api
