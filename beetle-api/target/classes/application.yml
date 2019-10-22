@@ -9,3 +9,17 @@ eureka:
 spring:
   application:
     name: beetle-api
+
+#自定义负载均衡策略
+beetle-server:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+#修改调用超时时间
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
