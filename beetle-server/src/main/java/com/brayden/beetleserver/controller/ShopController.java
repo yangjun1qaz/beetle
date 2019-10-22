@@ -3,6 +3,7 @@ package com.brayden.beetleserver.controller;
 import com.brayden.beetleserver.domain.ShopBean;
 import com.brayden.beetleserver.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,9 @@ public class ShopController {
     @Autowired
     private ShopService shopService;
 
+    @Value("${server.port}")
+    private String port;
+
     @GetMapping("/getShopList")
     @ResponseBody
     public List<ShopBean> getShopList() {
@@ -29,7 +33,8 @@ public class ShopController {
     @PostMapping("/saveShop")
     @ResponseBody
     public String saveShop(@RequestBody ShopBean shopBean) {
-        return shopService.saveShop(shopBean);
+        String result = shopService.saveShop(shopBean);
+        return result + "data from port=" + port;
     }
 
     @PostMapping("/postTest")
