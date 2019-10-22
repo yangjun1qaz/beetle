@@ -1,11 +1,11 @@
 package com.brayden.beetleapi.api;
 
+import com.brayden.beetleapi.domain.ShopBean;
 import com.brayden.beetleapi.server.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
+
 
 /**
  * @author: Brayden
@@ -22,6 +22,14 @@ public class ShopApi {
         String byId = shopService.findById();
         return  byId;
     }
+
+    @GetMapping("/v1/shop/save")
+    public String  saveShop(){
+        ShopBean shopBean = new ShopBean("friut", "down");
+        return  shopService.saveShop(shopBean);
+    }
+
+
     @PostMapping("/v1/postTest")
     public String  postTest(@RequestBody String requestBody, HttpServletRequest request){
         return shopService.postTest(requestBody);

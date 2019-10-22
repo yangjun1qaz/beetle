@@ -23,6 +23,16 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
+    public String  saveShop(ShopBean shopBean) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("shopName is:");
+        sb.append(shopBean.getShopName());
+        sb.append(" shopLocation is:");
+        sb.append(shopBean.getShopLocation());
+        return  sb.toString();
+    }
+
+    @Override
     public String postTest(String requestBody) {
         StringBuilder sb = new StringBuilder();
         sb.append(requestBody);

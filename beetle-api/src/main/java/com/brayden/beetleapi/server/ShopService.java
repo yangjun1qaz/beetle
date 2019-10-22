@@ -1,6 +1,8 @@
 package com.brayden.beetleapi.server;
 
+import com.brayden.beetleapi.domain.ShopBean;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -12,6 +14,9 @@ public interface ShopService {
 
     @GetMapping("/shop/getShopList")
     String findById();
+
+    @PostMapping("/shop/saveShop")
+    String saveShop(@RequestBody ShopBean shopBean);
 
     @PostMapping("/shop/postTest")
     String postTest(String requestBody);

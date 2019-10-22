@@ -26,6 +26,11 @@ public class ShopController {
         return shopService.getShopList();
     }
 
+    @PostMapping("/saveShop")
+    @ResponseBody
+    public String saveShop(@RequestBody ShopBean shopBean) {
+        return shopService.saveShop(shopBean);
+    }
 
     @PostMapping("/postTest")
     @ResponseBody

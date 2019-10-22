@@ -1,4 +1,4 @@
-package com.brayden.beetleserver.domain;
+package com.brayden.beetleapi.domain;
 
 import lombok.Data;
 

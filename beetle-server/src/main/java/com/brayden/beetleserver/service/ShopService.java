@@ -12,7 +12,21 @@ import java.util.Map;
  */
 public interface ShopService {
 
+     /**
+      * 查询商品列表
+      * @return
+      */
      List<ShopBean> getShopList();
 
+     /**
+      *保存商品
+      */
+     public String saveShop(ShopBean shopBean);
+
+     /**
+      * feign post test
+      * @param requestBody
+      * @return
+      */
      String postTest(String requestBody);
 }
