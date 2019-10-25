@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public interface ShopService {
 
     @GetMapping("/shop/getShopList")
-    String findById();
+    String getShopList();
 
     @PostMapping("/shop/saveShop")
     String saveShop(@RequestBody ShopBean shopBean);

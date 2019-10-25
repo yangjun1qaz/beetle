@@ -26,8 +26,16 @@ public class ShopController {
 
     @GetMapping("/getShopList")
     @ResponseBody
-    public List<ShopBean> getShopList() {
-        return shopService.getShopList();
+    public String getShopList() {
+        List<ShopBean> shopList = shopService.getShopList();
+        return shopList + "data from port=" + port;
+    }
+
+    @GetMapping("/findShop/{shopId}")
+    @ResponseBody
+    public String findShop(@PathVariable String shopId) {
+        String result="this is a shop,shop id is:"+shopId;
+        return result + " data from port=" + port;
     }
 
     @PostMapping("/saveShop")
@@ -39,7 +47,7 @@ public class ShopController {
 
     @PostMapping("/postTest")
     @ResponseBody
-    public String postTest(@RequestBody String requestBody){
+    public String postTest(@RequestBody String requestBody) {
         return shopService.postTest(requestBody);
     }
 }
