@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.TimeUnit;
 
 
 /**
  * @author: Brayden
  * @create: 2019-10-21 09:53
- * 通过feign调用接口
+ * 通过feign调用接口,feign里面是包含负载均衡(ribbon);
  */
 @RestController
 public class ShopApi {
@@ -35,6 +36,12 @@ public class ShopApi {
 
     @PostMapping("/v1/postTest")
     public String  postTest(@RequestBody String requestBody, HttpServletRequest request){
+        //当前线程睡眠一秒
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return shopService.postTest(requestBody);
 
     }
