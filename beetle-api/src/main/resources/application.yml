@@ -17,9 +17,9 @@ beetle-server:
 
 
 #修改调用超时时间
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 2000
-        readTimeout: 2000
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 2000
+#        readTimeout: 2000
