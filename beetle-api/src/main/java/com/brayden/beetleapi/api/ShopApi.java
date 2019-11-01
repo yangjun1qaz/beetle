@@ -37,11 +37,11 @@ public class ShopApi {
     @PostMapping("/v1/postTest")
     public String  postTest(@RequestBody String requestBody, HttpServletRequest request){
         //当前线程睡眠一秒
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return shopService.postTest(requestBody);
 
     }

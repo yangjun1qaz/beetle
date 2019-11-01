@@ -30,8 +30,8 @@ public class ShopRestRibbon {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
+//    @Autowired
+//    private LoadBalancerClient loadBalancerClient;
 
     @GetMapping("/v1/shop/list")
     public String getShopList() {
@@ -62,22 +62,22 @@ public class ShopRestRibbon {
         return forEntity1.getBody();
     }
 
-    @GetMapping("/v2/shop/list")
-    public String getShopListv2() {
-//        two execute style,this is style cancal down configured
-//        @Bean
-//        @LoadBalanced
-//        public RestTemplate restTemplate() {
-//            return new RestTemplate();
-//        }
-        ServiceInstance instance = loadBalancerClient.choose("beetle-server");
-        URI url = URI.create(String.format("https://%s:%s", instance.getHost(), instance.getPort()));
-        ShopBean shopBean = new ShopBean("一城一花", "Brayden raod");
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, shopBean, String.class);
-        System.out.println("post responseEntity result:" + responseEntity);
-        return responseEntity.getBody();
-    }
+//    @GetMapping("/v2/shop/list")
+//    public String getShopListv2() {
+////        two execute style,this is style cancal down configured
+////        @Bean
+////        @LoadBalanced
+////        public RestTemplate restTemplate() {
+////            return new RestTemplate();
+////        }
+//        ServiceInstance instance = loadBalancerClient.choose("beetle-server");
+//        URI url = URI.create(String.format("https://%s:%s", instance.getHost(), instance.getPort()));
+//        ShopBean shopBean = new ShopBean("一城一花", "Brayden raod");
+//        RestTemplate restTemplate = new RestTemplate();
+//        ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, shopBean, String.class);
+//        System.out.println("post responseEntity result:" + responseEntity);
+//        return responseEntity.getBody();
+//    }
 
 
 }

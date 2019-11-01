@@ -21,4 +21,7 @@ public interface ShopService {
     @PostMapping("/shop/postTest")
     String postTest(String requestBody);
 
+    @GetMapping("/shop/findShop/{shopId}")
+    String findShop(@PathVariable("shopId") String shopId);
+
 }
